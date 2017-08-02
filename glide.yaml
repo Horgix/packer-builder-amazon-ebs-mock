@@ -1,0 +1,6 @@
+package: packer-builder-aws-ebs-mock
+import:
+- package: github.com/hashicorp/packer
+  version: v1.0.3
+  subpackages:
+  - packer/plugin
