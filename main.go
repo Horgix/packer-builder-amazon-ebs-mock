@@ -3,7 +3,7 @@ package main
 import (
 	"log"
 
-	"packer-builder-amazon-ebs-mock/amazon-ebs-mock"
+	"github.com/horgix/packer-builder-amazon-ebs-mock/amazon-ebs-mock"
 
 	"github.com/hashicorp/packer/packer/plugin"
 )
