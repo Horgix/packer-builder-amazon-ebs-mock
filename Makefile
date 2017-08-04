@@ -2,7 +2,7 @@ build:: fmt
 	go build -o packer-builder-amazon-ebs-mock
 
 fmt::
-	go fmt
+	gofmt -w main.go amazon-ebs-mock/
 
 test::
 	export PACKER_LOG=true
