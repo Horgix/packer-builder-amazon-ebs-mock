@@ -1,11 +1,11 @@
-This Packer plugin is a **Builder** that mocks the [official Amazon EBS
-builder](https://www.packer.io/docs/builders/amazon.html TODO check link). Why
-do you want that? No idea, for testing purpose? At least this was my case, and
-it was built to help me test my [Packer post-processor that sends Slack
-notifications](TODO LINK) (I obviously don't want to wait for a real AMI to
-build everytime each time I want to run a test...)
+**This Packer plugin is a Builder that mocks the [official Amazon EBS
+builder](https://www.packer.io/docs/builders/amazon-ebs.html).**
 
-# How to use it
+Why do you want that? No idea, for testing purpose? At least this was my case,
+and it was built to help me test my [Packer post-processor that sends Slack
+notifications](https://github.com/Horgix/packer-post-processor-slack-notifications);
+I obviously don't want to wait for a real AMI to build everytime each time I
+want to run a test...
 
 Basically refer to the TODO link Packer documentation
 
