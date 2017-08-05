@@ -7,9 +7,14 @@ notifications](https://github.com/Horgix/packer-post-processor-slack-notificatio
 I obviously don't want to wait for a real AMI to build everytime each time I
 want to run a test...
 
-Basically refer to the TODO link Packer documentation
+# How to use it
 
--
+Basically refer to the [Packer documentation on building
+images](https://www.packer.io/intro/getting-started/build-image.html) about how
+to call it in your `packer.json`, since it's working as any builder. To learn
+how to **install** this plugin, refer to the [Packer documentation on
+installing
+plugins](https://www.packer.io/docs/extending/plugins.html#installing-plugins)
 
 # How to build it
 
