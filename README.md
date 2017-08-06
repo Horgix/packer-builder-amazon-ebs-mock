@@ -5,10 +5,10 @@
 **This Packer plugin is a Builder that mocks the [official Amazon EBS
 builder](https://www.packer.io/docs/builders/amazon-ebs.html).**
 
-Why do you want that? No idea, for testing purpose? At least this was my case,
+Why do you want that? Probably for testing purpose! At least this is my case,
 and it was built to help me test my [Packer post-processor that sends Slack
 notifications](https://github.com/Horgix/packer-post-processor-slack-notifications);
-I obviously don't want to wait for a real AMI to build everytime each time I
+I **really** don't want to wait for a real AMI to build everytime each time I
 want to run a test...
 
 ## How it does it
@@ -266,3 +266,4 @@ eu-west-2: ami-12345678
 us-east-2: ami-12345678
 us-west-2: ami-12345678
 2017/08/04 20:01:56 /home/horgix/work/godev/src/github.com/horgix/packer-builder-amazon-ebs-mock/packer-builder-amazon-ebs-mock: plugin process exited
+```
