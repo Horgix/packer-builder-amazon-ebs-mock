@@ -3,7 +3,7 @@
 ## What is this
 
 **This Packer plugin is a Builder that mocks the [official Amazon EBS
-builder](https://www.packer.io/docs/builders/amazon-ebs.html).**
+builder](https://www.packer.io/docs/builders/amazon-ebs.html)**.
 
 Why do you want that? Probably for testing purpose! At least this is my case,
 and it was built to help me test my [Packer post-processor that sends Slack
@@ -136,7 +136,7 @@ See at the end of this README, it's huge :)
 
 TODO : Remove the color codes from that...
 
-```
+```raw
 2017/08/04 20:01:56 [INFO] Packer version: 0.12.3
 2017/08/04 20:01:56 Packer Target OS/Arch: linux amd64
 2017/08/04 20:01:56 Built with Go Version: go1.8
