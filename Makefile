@@ -1,3 +1,5 @@
+CWD		= `pwd`
+
 build:: fmt
 	go build -o packer-builder-amazon-ebs-mock
 
@@ -7,3 +9,9 @@ fmt::
 test::
 	export PACKER_LOG=true
 	packer build packer.json
+
+readme_lint::
+	docker run --rm \
+	  -v ${CWD}/README.md:/data/README.md \
+	  -v ${CWD}/lint_style.rb:/lint_style.rb \
+	  mivok/markdownlint:0.4.0 --style /lint_style.rb .
