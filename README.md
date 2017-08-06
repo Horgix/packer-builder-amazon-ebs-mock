@@ -1,5 +1,7 @@
 # Packer Builder - Amazon EBS Mock
 
+[![Go Report Card](https://goreportcard.com/badge/github.com/horgix/packer-builder-amazon-ebs-mock)](https://goreportcard.com/report/github.com/horgix/packer-builder-amazon-ebs-mock)
+
 ## What is this
 
 **This Packer plugin is a Builder that mocks the [official Amazon EBS
@@ -17,6 +19,11 @@ In order to generate something realist, it will currently generate some random
 AMI names based on existing AWS regions but with `ami-12345678` as ID, just to
 make sure you notice it fast if for whatever reason you end up thinking you're
 running a true build.
+
+| Option    | Description | Default |
+| :-------: | :---------: | :-----: |
+| Generate  | bla         | False   |
+| Amount    | bla         | 1       |
 
 ## How to use it
 
@@ -104,7 +111,9 @@ See at the end of this README, it's huge :)
   me](TODO LINK) by any mean if you have some questions or want explanations
   about it
 
-### Samples of `manifest.json` produced by the `manifest` post-processor with this builder
+### Samples of `manifest.json`
+
+Produced by the `manifest` post-processor with this builder
 
 ```json
 {
@@ -134,7 +143,7 @@ See at the end of this README, it's huge :)
 
 `PACKER_LOG=true packer build -color=false ./tests/simplest_packer.json`
 
-```
+```raw
 [INFO] Packer version: 0.12.3
 Packer Target OS/Arch: linux amd64
 Built with Go Version: go1.8
@@ -211,7 +220,7 @@ packer-builder-amazon-ebs-mock: Waiting for connection...
 packer-builder-amazon-ebs-mock: Serving a plugin connection...
 Build debug mode: false
 Force build: false
-On error: 
+On error:
 Preparing build: amazon-ebs-mock
 packer-builder-amazon-ebs-mock: Hello I'm a custom builder and this is the Prepare step
 packer-builder-amazon-ebs-mock: Initializing random generator...
@@ -229,7 +238,7 @@ ui: ==> amazon-ebs-mock: Generated mock Artifact with success :)
 ==> amazon-ebs-mock: Generated mock Artifact with success :)
 ui: Build 'amazon-ebs-mock' finished.
 Builds completed. Waiting on interrupt barrier...
-ui: 
+ui:
 ==> Builds finished. The artifacts of successful builds are:
 machine readable: amazon-ebs-mock,artifact-count []string{"1"}
 Build 'amazon-ebs-mock' finished.
