@@ -29,7 +29,7 @@ make
 
 ## Most simple Packer JSON input (available in `tests/simplest_packer.json`):
 
-```
+```json
 {
   "builders": [
     {
