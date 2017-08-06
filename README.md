@@ -11,6 +11,13 @@ notifications](https://github.com/Horgix/packer-post-processor-slack-notificatio
 I obviously don't want to wait for a real AMI to build everytime each time I
 want to run a test...
 
+## How it does it
+
+In order to generate something realist, it will currently generate some random
+AMI names based on existing AWS regions but with `ami-12345678` as ID, just to
+make sure you notice it fast if for whatever reason you end up thinking you're
+running a true build.
+
 ## How to use it
 
 Basically refer to the [Packer documentation on building
@@ -67,6 +74,16 @@ eu-west-2: ami-12345678
 sa-east-1: ami-12345678
 us-west-2: ami-12345678
 ```
+
+### Duration
+
+If you time this build you'll end up with this:
+
+```raw
+packer build tests/simplest_packer.json  0.02s user 0.00s system 73% cpu 0.036 total
+```
+
+Which is all the point of this mock :)
 
 ### Want more details? Enable Packer logging!
 
