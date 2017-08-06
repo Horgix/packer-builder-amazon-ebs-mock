@@ -1,3 +1,7 @@
+# Packer Builder - Amazon EBS Mock
+
+## What is this
+
 **This Packer plugin is a Builder that mocks the [official Amazon EBS
 builder](https://www.packer.io/docs/builders/amazon-ebs.html).**
 
@@ -7,7 +11,7 @@ notifications](https://github.com/Horgix/packer-post-processor-slack-notificatio
 I obviously don't want to wait for a real AMI to build everytime each time I
 want to run a test...
 
-# How to use it
+## How to use it
 
 Basically refer to the [Packer documentation on building
 images](https://www.packer.io/intro/getting-started/build-image.html) about how
@@ -16,7 +20,7 @@ how to **install** this plugin, refer to the [Packer documentation on
 installing
 plugins](https://www.packer.io/docs/extending/plugins.html#installing-plugins)
 
-# How to build it
+## How to build it
 
 ```shell
 # Get dependencies
@@ -25,9 +29,9 @@ glide install
 make
 ```
 
-# Example
+## Example
 
-## Most simple Packer JSON input (available in `tests/simplest_packer.json`):
+### Most simple Packer JSON input (available in `tests/simplest_packer.json`)
 
 ```json
 {
@@ -39,12 +43,11 @@ make
 }
 ```
 
-## Output of such a build
-
+### Output of such a build
 
 `packer build ./tests/simplest_packer.json`
 
-```
+```raw
 amazon-ebs-mock output will be in this color.
 
 ==> amazon-ebs-mock: I'm doing nothing...
@@ -65,11 +68,11 @@ sa-east-1: ami-12345678
 us-west-2: ami-12345678
 ```
 
-## Want more details? Enable Packer logging!
+### Want more details? Enable Packer logging!
 
 See at the end of this README, it's huge :)
 
-# Misc informations
+## Misc informations
 
 - Since this is a small project that I'm also using as a test purpose, I went
   with `glide` as a go dependencies manager. If you feel more comfortable with
@@ -84,8 +87,7 @@ See at the end of this README, it's huge :)
   me](TODO LINK) by any mean if you have some questions or want explanations
   about it
 
-## Samples of `manifest.json` produced by the `manifest` post-processor with this builder
-
+### Samples of `manifest.json` produced by the `manifest` post-processor with this builder
 
 ```json
 {
@@ -111,8 +113,7 @@ See at the end of this README, it's huge :)
 }
 ```
 
-# Details of a basic build
-
+## Details of a basic build
 
 `PACKER_LOG=true packer build ./tests/simplest_packer.json`
 
