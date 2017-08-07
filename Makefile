@@ -1,7 +1,16 @@
+GOAPP		= github.com/horgix/packer-builder-amazon-ebs-mock
 CWD		= `pwd`
 
 build:: fmt
 	go build -o packer-builder-amazon-ebs-mock
+
+docker::
+	docker run --rm \
+	  -v "${CWD}":"/usr/src/${GOAPP}" \
+	  -w "/usr/src/${GOAPP}" \
+	  -e GOPATH=/usr/ \
+	    golang:1.8 \
+	      make
 
 fmt::
 	gofmt -w main.go amazon-ebs-mock/
