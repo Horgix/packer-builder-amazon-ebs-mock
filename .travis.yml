@@ -2,14 +2,26 @@ sudo: required
 
 language: go
 
+go:
+  - 1.8
+  - tip
+
 services:
   - docker
 
 before_install:
+  # Dependencies are installed through glide
   - go get -v github.com/Masterminds/glide
+  # Test coverage are run on coveralls
+  - docker pull zchee/goveralls
+    #- go get github.com/mattn/goveralls
+    #- go get golang.org/x/tools/cmd/cover
 
 install:
   - glide install
 
 script:
   - make docker
+  - pwd
+  - echo $GOPATH
+  - docker run -t --rm zchee/goveralls -service=travis-ci
