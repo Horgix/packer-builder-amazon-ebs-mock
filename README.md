@@ -1,6 +1,7 @@
 # Packer Builder - Amazon EBS Mock
 
 [![Build Status](https://travis-ci.org/Horgix/packer-builder-amazon-ebs-mock.svg?branch=master)](https://travis-ci.org/Horgix/packer-builder-amazon-ebs-mock)
+[![Coverage Status](https://coveralls.io/repos/github/Horgix/packer-builder-amazon-ebs-mock/badge.svg?branch=master)](https://coveralls.io/github/Horgix/packer-builder-amazon-ebs-mock?branch=master)
 [![Go Report Card](https://goreportcard.com/badge/github.com/horgix/packer-builder-amazon-ebs-mock)](https://goreportcard.com/report/github.com/horgix/packer-builder-amazon-ebs-mock)
 
 ## What is this
