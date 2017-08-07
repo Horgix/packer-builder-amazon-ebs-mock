@@ -1,0 +1,15 @@
+sudo: required
+
+language: go
+
+services:
+  - docker
+
+before_install:
+  - go get -v github.com/Masterminds/glide
+
+install:
+  - glide install
+
+script:
+  - make docker
