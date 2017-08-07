@@ -23,3 +23,6 @@ script:
   - pwd
   - echo $GOPATH
   - $HOME/gopath/bin/goveralls -service=travis-ci
+
+notifications:
+  email: false
