@@ -1,5 +1,6 @@
 # Packer Builder - Amazon EBS Mock
 
+[![Build Status](https://travis-ci.org/Horgix/packer-builder-amazon-ebs-mock.svg?branch=master)](https://travis-ci.org/Horgix/packer-builder-amazon-ebs-mock)
 [![Go Report Card](https://goreportcard.com/badge/github.com/horgix/packer-builder-amazon-ebs-mock)](https://goreportcard.com/report/github.com/horgix/packer-builder-amazon-ebs-mock)
 
 ## What is this
