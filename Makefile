@@ -1,4 +1,4 @@
-GOAPP		= github.com/horgix/packer-builder-amazon-ebs-mock
+GOAPP		= github.com/Horgix/packer-builder-amazon-ebs-mock
 CWD		= `pwd`
 
 build:: fmt
