@@ -12,6 +12,7 @@ import (
 
 const BuilderId = "horgix.amazonebsmock"
 
+// Hello Go, we can't even declare const slices...
 var regions = [...]string{
 	"us-east-2",
 	"us-east-1",
