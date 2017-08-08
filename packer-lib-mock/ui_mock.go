@@ -1,11 +1,17 @@
 package packermock
 
 import (
+	"fmt"
 	"log"
 )
 
 type MockUi struct {
-	SayCount int
+	// Counters for each method call on this struct
+	SayCount     int
+	AskCount     int
+	MessageCount int
+	ErrorCount   int
+	MachineCount int
 }
 
 func (ui *MockUi) Say(message string) {
@@ -15,17 +21,21 @@ func (ui *MockUi) Say(message string) {
 
 func (ui *MockUi) Ask(query string) (string, error) {
 	log.Printf("ui.Ask mock call")
-	return "", nil
+	ui.AskCount++
+	return fmt.Sprintf("I am a mocked Response. Your query: %s", query), nil
 }
 
 func (ui *MockUi) Message(message string) {
 	log.Printf("ui.Message mock call")
+	ui.MessageCount++
 }
 
 func (ui *MockUi) Error(message string) {
 	log.Printf("ui.Error mock call")
+	ui.ErrorCount++
 }
 
-func (u *MockUi) Machine(t string, args ...string) {
+func (ui *MockUi) Machine(t string, args ...string) {
 	log.Printf("ui.Machine mock call")
+	ui.MachineCount++
 }
