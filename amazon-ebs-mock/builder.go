@@ -38,14 +38,14 @@ type Builder struct {
 	config *Config
 	// The testMsg field used to get some feedback during tests from method
 	// which don't return anything like Cancel()
-	testMsg string
+	TestMsg string
 }
 
 func (b *Builder) Prepare(raws ...interface{}) ([]string, error) {
 	log.Println("Hello I'm a custom builder and this is the Prepare step")
 	log.Println("Initializing random generator...")
 	rand.Seed(time.Now().Unix())
-	b.testMsg = "Rand seeded"
+	b.TestMsg = "Rand seeded"
 	return nil, nil
 }
 
@@ -71,5 +71,5 @@ func (b *Builder) Run(ui packer.Ui, hook packer.Hook, cache packer.Cache) (packe
 }
 
 func (b *Builder) Cancel() {
-	b.testMsg = "This method is doing nothing"
+	b.TestMsg = "This method is doing nothing"
 }
