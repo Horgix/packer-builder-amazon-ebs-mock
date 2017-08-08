@@ -1,6 +1,10 @@
 GOAPP		= github.com/Horgix/packer-builder-amazon-ebs-mock
 CWD		= `pwd`
 
+SOURCES		= main.go \
+		  amazon-ebs-mock/ \
+		  packer-lib-mock/
+
 build:: fmt
 	go build -o packer-builder-amazon-ebs-mock
 
@@ -13,7 +17,7 @@ docker::
 	      make
 
 fmt::
-	gofmt -w main.go amazon-ebs-mock/
+	gofmt -w ${SOURCES}
 
 test::
 	export PACKER_LOG=true
