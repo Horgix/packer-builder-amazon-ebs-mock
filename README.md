@@ -38,6 +38,8 @@ plugins](https://www.packer.io/docs/extending/plugins.html#installing-plugins)
 
 ## How to build it
 
+This project is using [glide](https://glide.sh/) for dependencies management.
+
 ```shell
 # Get dependencies
 glide install
