@@ -12,6 +12,18 @@ import (
 func TestPrepare(t *testing.T) {
 	builder := new(Builder)
 	builder.Prepare()
+	if builder.testMsg != "Rand seeded" {
+		t.Errorf("Cancel should initialize rand but didn't report it")
+	}
+}
+
+// Dumb test, but you know, coverage.
+func TestCancel(t *testing.T) {
+	builder := new(Builder)
+	builder.Cancel()
+	if builder.testMsg != "This method is doing nothing" {
+		t.Errorf("Cancel should be doing nothing but it didn't report it")
+	}
 }
 
 // Check that Run() method notify the user as expected
