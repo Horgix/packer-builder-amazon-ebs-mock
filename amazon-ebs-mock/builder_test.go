@@ -14,7 +14,7 @@ func TestPrepare(t *testing.T) {
 	builder := new(amazonebsmock.Builder)
 	builder.Prepare()
 	if builder.TestMsg != "Rand seeded" {
-		t.Errorf("Cancel should initialize rand but didn't report it")
+		t.Errorf("Prepare() should initialize rand but didn't report it")
 	}
 }
 
@@ -23,7 +23,7 @@ func TestCancel(t *testing.T) {
 	builder := new(amazonebsmock.Builder)
 	builder.Cancel()
 	if builder.TestMsg != "This method is doing nothing" {
-		t.Errorf("Cancel should be doing nothing but it didn't report it")
+		t.Errorf("Cancel() should be doing nothing but it didn't report it")
 	}
 }
 
