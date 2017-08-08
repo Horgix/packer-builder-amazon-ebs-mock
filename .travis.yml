@@ -22,7 +22,7 @@ script:
   - make docker
   - pwd
   - echo $GOPATH
-  - $HOME/gopath/bin/goveralls -service=travis-ci
+  - $GOPATH/bin/goveralls -service=travis-ci
 
 notifications:
   email: false
