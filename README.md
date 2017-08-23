@@ -15,6 +15,10 @@ notifications](https://github.com/Horgix/packer-post-processor-slack-notificatio
 I **really** don't want to wait for a real AMI to build everytime each time I
 want to run a test...
 
+This will not handle the same configuration parameters than the official
+builder though, so you can't just change the type. Maybe this could be
+implemented, feel free to submit a PR!
+
 ## How it does it
 
 In order to generate something realist, it will currently generate some random
@@ -22,10 +26,11 @@ AMI names based on existing AWS regions but with `ami-12345678` as ID, just to
 make sure you notice it fast if for whatever reason you end up thinking you're
 running a true build.
 
-| Option    | Description | Default |
-| :-------: | :---------: | :-----: |
-| Generate  | bla         | False   |
-| Amount    | bla         | 1       |
+| Option    | Default |Description |
+| :-------: | :-----: |:---------: |
+| Generate  | false   | Enable the generation of fake AMI IDs with a random region when set to true `true`. When `false`, all AMI IDs in the artefact will just be `eu-west-1:ami-12345678`   |
+| Amount    | 1       | Define the number of AMI IDs to be returned as artifact. If `1`, AMI ID will be `ami-12345678`, else it will just be incremental numbers from `ami-00000001` |
+
 
 ## How to use it
 
