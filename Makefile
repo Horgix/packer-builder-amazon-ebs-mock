@@ -19,9 +19,11 @@ docker::
 fmt::
 	gofmt -w ${SOURCES}
 
+debug::
+	PACKER_LOG=true packer build tests/simplest_packer.json
+
 test::
-	export PACKER_LOG=true
-	packer build packer.json
+	go test ${GOAPP}/amazon-ebs-mock
 
 readme_lint::
 	docker run --rm \
