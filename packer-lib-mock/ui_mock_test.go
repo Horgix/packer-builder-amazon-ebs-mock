@@ -2,9 +2,9 @@ package packermock_test
 
 import (
 	"fmt"
+	"github.com/Horgix/packer-builder-amazon-ebs-mock/packer-lib-mock"
 	"log"
 	"testing"
-	"github.com/Horgix/packer-builder-amazon-ebs-mock/packer-lib-mock"
 )
 
 func TestSay(t *testing.T) {
@@ -44,12 +44,12 @@ func TestAsk(t *testing.T) {
 	// We'll call Ask() 4 times. TODO: generate some tests for that
 	const expectedAskCount = 4
 	for i := 1; i <= expectedAskCount; i++ {
-                query := fmt.Sprintf("Call %d", i)
+		query := fmt.Sprintf("Call %d", i)
 		response, _ := ui.Ask(query)
-                expectedResponse := fmt.Sprintf("I am a mocked Response. Your query: %s", query)
-		if response !=  expectedResponse {
-                        log.Printf("Expected: ", expectedResponse)
-                        log.Printf("Got: ", response)
+		expectedResponse := fmt.Sprintf("I am a mocked Response. Your query: %s", query)
+		if response != expectedResponse {
+			log.Printf("Expected: ", expectedResponse)
+			log.Printf("Got: ", response)
 			t.Errorf("Didnt get the expected Response")
 		}
 	}
