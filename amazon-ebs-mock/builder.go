@@ -38,8 +38,9 @@ var regions = [...]string{
 type Config struct {
 	common.PackerConfig `mapstructure:",squash"`
 
-	Generate bool `mapstructure:"generate"`
-	Amount   int  `mapstructure:"amount"`
+	Generate bool   `mapstructure:"generate"`
+	Amount   int    `mapstructure:"amount"`
+	Region   string `mapstructure:"region"`
 
 	ctx interpolate.Context
 }
@@ -59,6 +60,8 @@ func (b *Builder) LoadDefaultConfig() {
 	b.Config.Generate = true
 	log.Println("LoadDefaultConfig(): Setting default: Amount = 1")
 	b.Config.Amount = 1
+	log.Println("LoadDefaultConfig(): Setting default: Region = \"\"")
+	b.Config.Region = ""
 }
 
 func (b *Builder) Prepare(raws ...interface{}) ([]string, error) {
@@ -68,6 +71,7 @@ func (b *Builder) Prepare(raws ...interface{}) ([]string, error) {
 	log.Println("Prepare(): initial configuration:")
 	log.Println("  - Generate: ", b.Config.Generate)
 	log.Println("  - Amount: ", b.Config.Amount)
+	log.Println("  - Region: \"" + b.Config.Region + "\"")
 	log.Println("Prepare(): parsing configuration")
 	err := config.Decode(&b.Config, &config.DecodeOpts{Interpolate: false}, raws...)
 	if err != nil {
@@ -77,6 +81,7 @@ func (b *Builder) Prepare(raws ...interface{}) ([]string, error) {
 	log.Println("Prepare(): current configuration:")
 	log.Println("  - Generate: ", b.Config.Generate)
 	log.Println("  - Amount: ", b.Config.Amount)
+	log.Println("  - Region: \"" + b.Config.Region + "\"")
 
 	log.Println("Prepare(): Initializing random generator...")
 	log.Println(b.Config.Generate)
