@@ -108,7 +108,8 @@ func (b *Builder) Run(ui packer.Ui, hook packer.Hook, cache packer.Cache) (packe
 
 	log.Println("Run(): tranforming into official module artifact type...")
 	artifact := &awscommon.Artifact{
-		Amis: amis,
+		Amis:           amis,
+		BuilderIdValue: BuilderId,
 	}
 
 	ui.Say("Generated mock Artifact with success :)")
