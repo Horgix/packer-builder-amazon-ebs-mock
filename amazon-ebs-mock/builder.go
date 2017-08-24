@@ -1,6 +1,7 @@
 package amazonebsmock
 
 import (
+	"errors"
 	"fmt"
 	"log"
 	"math/rand"
@@ -82,6 +83,12 @@ func (b *Builder) Prepare(raws ...interface{}) ([]string, error) {
 	log.Println("  - Generate: ", b.Config.Generate)
 	log.Println("  - Amount: ", b.Config.Amount)
 	log.Println("  - Region: \"" + b.Config.Region + "\"")
+
+	log.Println("Prepare(): checking for incorrect parameters")
+	if b.Config.Amount != 1 && b.Config.Region != "" {
+		// TODO : Improve this error, maybe use Packer's types?
+		return nil, errors.New("FAIL")
+	}
 
 	log.Println("Prepare(): Initializing random generator...")
 	log.Println(b.Config.Generate)
