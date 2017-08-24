@@ -8,6 +8,7 @@ import (
 	"testing"
 )
 
+// LoadDefaultConfig : 'Generate' parameter
 func TestLoadDefaultConfig_DefaultGenerate(t *testing.T) {
 	const expectedGenerate = true
 
@@ -19,6 +20,7 @@ func TestLoadDefaultConfig_DefaultGenerate(t *testing.T) {
 	}
 }
 
+// LoadDefaultConfig : 'Amount' parameter
 func TestLoadDefaultConfig_DefaultAmount(t *testing.T) {
 	const expectedAmount = 1
 
@@ -26,7 +28,19 @@ func TestLoadDefaultConfig_DefaultAmount(t *testing.T) {
 	builder.LoadDefaultConfig()
 
 	if builder.Config.Amount != expectedAmount {
-		t.Error("LoadDefaultConfig() should return a default config with Generate to '%v' but it reported '%v'", expectedAmount, builder.Config.Amount)
+		t.Error("LoadDefaultConfig() should return a default config with Amount to '%v' but it reported '%v'", expectedAmount, builder.Config.Amount)
+	}
+}
+
+// LoadDefaultConfig : 'Region' parameter
+func TestLoadDefaultConfig_DefaultRegion(t *testing.T) {
+	const expectedRegion = ""
+
+	builder := new(amazonebsmock.Builder)
+	builder.LoadDefaultConfig()
+
+	if builder.Config.Region != expectedRegion {
+		t.Error("LoadDefaultConfig() should return a default config with Region to '%v' but it reported '%v'", expectedRegion, builder.Config.Region)
 	}
 }
 
