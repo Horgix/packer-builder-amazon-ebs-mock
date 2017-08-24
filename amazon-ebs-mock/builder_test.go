@@ -19,15 +19,16 @@ func TestLoadDefaultConfig_DefaultGenerate(t *testing.T) {
 	}
 }
 
-//func TestNewBuilder_DefaultAmount(t *testing.T) {
-//	const expectedAmount = 1
-//
-//	builder := new(amazonebsmock.Builder)
-//
-//        if builder.Config.Amount != expectedAmount {
-//          t.Error("NewBuilder() should return a default config with Generate to '%v' but it reported '%v'", expectedAmount, builder.Config.Amount)
-//        }
-//}
+func TestLoadDefaultConfig_DefaultAmount(t *testing.T) {
+	const expectedAmount = 1
+
+	builder := new(amazonebsmock.Builder)
+	builder.LoadDefaultConfig()
+
+	if builder.Config.Amount != expectedAmount {
+		t.Error("LoadDefaultConfig() should return a default config with Generate to '%v' but it reported '%v'", expectedAmount, builder.Config.Amount)
+	}
+}
 
 // TODO : Test config parsing
 
