@@ -8,13 +8,14 @@ import (
 	"testing"
 )
 
-func TestNewBuilder_DefaultGenerate(t *testing.T) {
+func TestLoadDefaultConfig_DefaultGenerate(t *testing.T) {
 	const expectedGenerate = true
 
 	builder := new(amazonebsmock.Builder)
+	builder.LoadDefaultConfig()
 
 	if builder.Config.Generate != expectedGenerate {
-		t.Error(fmt.Sprintf("NewBuilder() should return a default config with Generate to '%v' but it reported '%v'", expectedGenerate, builder.Config.Generate))
+		t.Error(fmt.Sprintf("LoadDefaultConfig() should return a default config with Generate to '%v' but it reported '%v'", expectedGenerate, builder.Config.Generate))
 	}
 }
 
