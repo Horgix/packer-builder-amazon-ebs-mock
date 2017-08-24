@@ -15,6 +15,6 @@ func main() {
 		panic(err)
 	}
 
-	server.RegisterBuilder(amazonebsmock.NewBuilder())
+	server.RegisterBuilder(new(amazonebsmock.Builder))
 	server.Serve()
 }

@@ -51,22 +51,20 @@ type Builder struct {
 	TestMsg string
 }
 
-func NewBuilder() *Builder {
-	log.Println("NewBuilder(): Initializing a new builder...")
-	var b *Builder = new(Builder)
-	log.Println("NewBuilder(): Initializing builder's configuration")
+func (b *Builder) LoadDefaultConfig() {
+	log.Println("LoadDefaultConfig(): Initializing builder's configuration")
 	b.Config = Config{}
 	log.Println(b.Config)
-	log.Println("NewBuilder(): Setting default: Generate = false")
-	b.Config.Generate = false
-	log.Println("NewBuilder(): Setting default: Amount = 1")
+	log.Println("LoadDefaultConfig(): Setting default: Generate = false")
+	b.Config.Generate = true
+	log.Println("LoadDefaultConfig(): Setting default: Amount = 1")
 	b.Config.Amount = 1
-	return b
 }
 
 func (b *Builder) Prepare(raws ...interface{}) ([]string, error) {
 	log.Println("Hello I'm a custom builder and this is the Prepare step")
 
+	b.LoadDefaultConfig()
 	log.Println("Prepare(): initial configuration:")
 	log.Println("  - Generate: ", b.Config.Generate)
 	log.Println("  - Amount: ", b.Config.Amount)
