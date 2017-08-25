@@ -17,10 +17,10 @@ debug::
 	PACKER_LOG=true packer build tests/simplest_packer.json
 
 fmt::
-	go fmt ${GO_PKGS}
+	@go fmt ${GO_PKGS}
 
 test::
-	go test ${GO_PKGS}
+	@go test ${GO_PKGS}
 
 lint::
 	docker run --rm \
