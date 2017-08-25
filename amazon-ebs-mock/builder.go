@@ -17,7 +17,7 @@ import (
 const BuilderId = "horgix.amazonebsmock"
 
 // Hello Go, we can't even declare const slices...
-var regions = [...]string{
+var regions = []string{
 	"us-east-2",
 	"us-east-1",
 	"us-west-1",
@@ -105,11 +105,24 @@ func (b *Builder) Run(ui packer.Ui, hook packer.Hook, cache packer.Cache) (packe
 
 	ui.Say(fmt.Sprintf("Generating mock Artifact (%d AMI IDs)...", b.Config.Amount))
 	for i := 0; i < b.Config.Amount; i++ {
+		amiId := fmt.Sprintf("ami-%06d", i+1)
 		if b.Config.Generate {
-			amis[regions[rand.Intn(len(regions))]] = "ami-12345678"
+			// Packer is not able to build 2 AMIs in the same
+			// region in the same Builder, so:
+			// - We take a random region
+			// - We remove it from the pool
+
+			// Take a random region
+			idx := rand.Intn(len(regions))
+			region := regions[idx]
+
+			// Remove it from the pool
+			regions[idx] = regions[len(regions)-1]
+			regions = regions[:len(regions)-1]
+
+			amis[region] = amiId
 		} else {
-			// TODO : start at AMI id 00000001 and increment it
-			amis["eu-west-1"] = "ami-12345678"
+			amis["eu-west-1"] = amiId
 		}
 	}
 
