@@ -22,6 +22,10 @@ fmt::
 test::
 	go test ${GO_PKGS}
 
+lint::
+	docker run --rm \
+	  -v ${CWD}:/usr/local/go/src/${GOPKG} \
+	    horgix/golint golint ${GO_PKGS}
 
 readme_lint::
 	docker run --rm \
