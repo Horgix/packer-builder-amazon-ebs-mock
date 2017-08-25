@@ -22,6 +22,9 @@ fmt::
 test::
 	@go test ${GO_PKGS}
 
+test_details::
+	@go test -v ${GO_PKGS} | grep -v '^[[:digit:]]\{4\}/[[:digit:]]\{2\}/[[:digit:]]\{2\}'
+
 lint::
 	docker run --rm \
 	  -v ${CWD}:/usr/local/go/src/${GOPKG} \
