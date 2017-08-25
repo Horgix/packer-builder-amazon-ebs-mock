@@ -66,24 +66,6 @@ func TestPrepare_Rand(t *testing.T) {
 	}
 }
 
-// func TestPrepare(t *testing.T) {
-// 	builder := new(amazonebsmock.Builder)
-// 	builder.Prepare()
-//
-// 	if builder.TestMsg != "Rand seeded" {
-// 		t.Errorf("Prepare() should initialize rand but didn't report it")
-// 	}
-// }
-
-// Dumb test, but you know, coverage.
-func TestCancel(t *testing.T) {
-	builder := new(amazonebsmock.Builder)
-	builder.Cancel()
-	if builder.TestMsg != "This method is doing nothing" {
-		t.Errorf("Cancel() should be doing nothing but it didn't report it")
-	}
-}
-
 // Check that Run() method notify the user as expected
 func TestRun_UiCalls(t *testing.T) {
 	// Initialize and Prepare Builder
@@ -103,5 +85,15 @@ func TestRun_UiCalls(t *testing.T) {
 		t.Errorf("Number of calls to ui.Say() was incorrect, "+
 			"got %d but expected %d", ui.SayCount,
 			expectedSayCount)
+	}
+}
+
+// Dumb test, but you know, coverage.
+func TestCancel(t *testing.T) {
+	builder := new(amazonebsmock.Builder)
+	builder.Cancel()
+
+	if builder.TestMsg != "This method is doing nothing" {
+		t.Errorf("Cancel() should be doing nothing but it didn't report it")
 	}
 }
