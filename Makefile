@@ -1,17 +1,14 @@
-GOAPP		= github.com/Horgix/packer-builder-amazon-ebs-mock
+GOPKG		= "github.com/Horgix/packer-builder-amazon-ebs-mock"
+GO_PKGS		= `go list ./... | grep -v /vendor/`
 CWD		= `pwd`
-
-SOURCES		= main.go \
-		  amazon-ebs-mock/ \
-		  packer-lib-mock/
 
 build:: fmt
 	go build -o packer-builder-amazon-ebs-mock
 
 docker::
 	docker run --rm \
-	  -v "${CWD}":"/usr/src/${GOAPP}" \
-	  -w "/usr/src/${GOAPP}" \
+	  -v "${CWD}":"/usr/src/${GOPKG}" \
+	  -w "/usr/src/${GOPKG}" \
 	  -e GOPATH=/usr/ \
 	    golang:1.8 \
 	      make
@@ -23,7 +20,8 @@ fmt::
 	go fmt ${GO_PKGS}
 
 test::
-	go test ${GOAPP}/amazon-ebs-mock
+	go test ${GO_PKGS}
+
 
 readme_lint::
 	docker run --rm \
