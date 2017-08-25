@@ -10,25 +10,12 @@ import (
 // LoadDefaultConfig
 func TestLoadDefaultConfig(t *testing.T) {
 	// Expected default values for parameters
-	const expectedGenerate = true
 	const expectedAmount = 1
 	const expectedRegion = ""
 
 	// Initialize the Builder and its config
 	builder := new(amazonebsmock.Builder)
 	builder.LoadDefaultConfig()
-
-	// Check 'Generate' parameter
-	t.Run("Generate", func(t *testing.T) {
-		if builder.Config.Generate != expectedGenerate {
-			t.Error(
-				"LoadDefaultConfig() should return a default "+
-					"config with Generate to '%v' but it reported '%v'",
-				expectedGenerate,
-				builder.Config.Generate,
-			)
-		}
-	})
 
 	// Check 'Amount' parameter
 	t.Run("Amount", func(t *testing.T) {
