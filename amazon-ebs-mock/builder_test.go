@@ -1,47 +1,58 @@
 package amazonebsmock_test
 
 import (
-	"fmt"
 	"github.com/Horgix/packer-builder-amazon-ebs-mock/amazon-ebs-mock"
 	"github.com/Horgix/packer-builder-amazon-ebs-mock/packer-lib-mock"
 	"log"
 	"testing"
 )
 
-// LoadDefaultConfig : 'Generate' parameter
-func TestLoadDefaultConfig_DefaultGenerate(t *testing.T) {
+// LoadDefaultConfig
+func TestLoadDefaultConfig(t *testing.T) {
+	// Expected default values for parameters
 	const expectedGenerate = true
-
-	builder := new(amazonebsmock.Builder)
-	builder.LoadDefaultConfig()
-
-	if builder.Config.Generate != expectedGenerate {
-		t.Error(fmt.Sprintf("LoadDefaultConfig() should return a default config with Generate to '%v' but it reported '%v'", expectedGenerate, builder.Config.Generate))
-	}
-}
-
-// LoadDefaultConfig : 'Amount' parameter
-func TestLoadDefaultConfig_DefaultAmount(t *testing.T) {
 	const expectedAmount = 1
-
-	builder := new(amazonebsmock.Builder)
-	builder.LoadDefaultConfig()
-
-	if builder.Config.Amount != expectedAmount {
-		t.Error("LoadDefaultConfig() should return a default config with Amount to '%v' but it reported '%v'", expectedAmount, builder.Config.Amount)
-	}
-}
-
-// LoadDefaultConfig : 'Region' parameter
-func TestLoadDefaultConfig_DefaultRegion(t *testing.T) {
 	const expectedRegion = ""
 
+	// Initialize the Builder and its config
 	builder := new(amazonebsmock.Builder)
 	builder.LoadDefaultConfig()
 
-	if builder.Config.Region != expectedRegion {
-		t.Error("LoadDefaultConfig() should return a default config with Region to '%v' but it reported '%v'", expectedRegion, builder.Config.Region)
-	}
+	// Check 'Generate' parameter
+	t.Run("Generate", func(t *testing.T) {
+		if builder.Config.Generate != expectedGenerate {
+			t.Error(
+				"LoadDefaultConfig() should return a default "+
+					"config with Generate to '%v' but it reported '%v'",
+				expectedGenerate,
+				builder.Config.Generate,
+			)
+		}
+	})
+
+	// Check 'Amount' parameter
+	t.Run("Amount", func(t *testing.T) {
+		if builder.Config.Amount != expectedAmount {
+			t.Error(
+				"LoadDefaultConfig() should return a default "+
+					"config with Amount to '%v' but it reported '%v'",
+				expectedAmount,
+				builder.Config.Amount,
+			)
+		}
+	})
+
+	// Check 'Region' parameter
+	t.Run("Region", func(t *testing.T) {
+		if builder.Config.Region != expectedRegion {
+			t.Error(
+				"LoadDefaultConfig() should return a default "+
+					"config with Region to '%v' but it reported '%v'",
+				expectedRegion,
+				builder.Config.Region,
+			)
+		}
+	})
 }
 
 // TODO : Test config parsing
