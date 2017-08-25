@@ -1,0 +1,8 @@
+{
+  "builders": [
+    {
+      "type":     "amazon-ebs-mock",
+      "region":   "eu-west-1"
+    }
+  ]
+}
