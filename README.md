@@ -150,6 +150,14 @@ Produced by the `manifest` post-processor with this builder
 }
 ```
 
+## CI / Tests
+
+- <https://github.com/mattn/goveralls>
+- <https://coveralls.zendesk.com/hc/en-us/articles/201342809-Go>
+- <https://docs.travis-ci.com/user/coveralls/>
+- <https://docs.travis-ci.com/user/languages/go/>
+- <https://blog.golang.org/cover>
+
 ## Details of a basic build
 
 `PACKER_LOG=true packer build -color=false ./tests/simplest_packer.json`
