@@ -16,11 +16,11 @@ docker::
 	    golang:1.8 \
 	      make
 
-fmt::
-	gofmt -w ${SOURCES}
-
 debug::
 	PACKER_LOG=true packer build tests/simplest_packer.json
+
+fmt::
+	go fmt ${GO_PKGS}
 
 test::
 	go test ${GOAPP}/amazon-ebs-mock
