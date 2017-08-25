@@ -30,8 +30,9 @@ running a true build.
 | :-------: | :-----: |:---------: |
 | Generate  | true    | Enable the generation of fake AMI IDs with a random region when set to true `true`. When `false`, all AMI IDs in the artefact will just be `eu-west-1:ami-12345678`   |
 | Amount    | 1       | Define the number of AMI IDs to be returned as artifact. If `1`, AMI ID will be `ami-12345678`, else it will just be incremental numbers from `ami-00000001` |
+| Region    | ""      | Usable only when `Amount` is `1`. Specify the region to which the AMI should be associated. We cannot do that for `Amount > 1` since the official builder doesn't support building multiple AMIs for the same region and we're using it internally |
 
-Change: only 0000001 increment, no 12345678 for now
+TODO Change: only 0000001 increment, no 12345678 for now
 
 
 ## How to use it
