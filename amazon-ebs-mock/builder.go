@@ -34,6 +34,8 @@ var regions = []string{
 	"sa-east-1",
 }
 
+// Config will be initialize by Packer's helper DecodeOpts and uses the
+// mapstructure lib to associate JSON fields to the parameters it adds
 // TODO : ideally, the Config and initialization should be the same than the
 // official Amazon EBS Builder
 type Config struct {
@@ -45,6 +47,8 @@ type Config struct {
 	ctx interpolate.Context
 }
 
+// Builder implements the Packer's Builder interface in order to mock its
+// methods
 type Builder struct {
 	Config Config
 	// The testMsg field used to get some feedback during tests from method
