@@ -25,4 +25,5 @@ script:
   - $GOPATH/bin/goveralls -service=travis-ci
 
 notifications:
-  email: false
+  email:
+    on_failure: change
