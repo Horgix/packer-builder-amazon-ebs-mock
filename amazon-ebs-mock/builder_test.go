@@ -60,7 +60,7 @@ func TestRun_UiCalls(t *testing.T) {
 	builder.Prepare()
 
 	// Mock the "ui" part so we can count calls to ui.Say()
-	ui := &packermock.MockUi{}
+	ui := &packermock.MockUI{}
 
 	log.Printf("ui.Say call SayCounter pre Run: %v", ui.SayCount)
 	builder.Run(ui, nil, nil)

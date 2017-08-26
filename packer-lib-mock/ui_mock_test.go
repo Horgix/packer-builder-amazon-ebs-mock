@@ -8,7 +8,7 @@ import (
 )
 
 func TestSay(t *testing.T) {
-	ui := new(packermock.MockUi)
+	ui := new(packermock.MockUI)
 
 	// Check that it is well initalized at 0
 	if ui.SayCount != 0 {
@@ -32,7 +32,7 @@ func TestSay(t *testing.T) {
 }
 
 func TestAsk(t *testing.T) {
-	ui := new(packermock.MockUi)
+	ui := new(packermock.MockUI)
 
 	// Check that it is well initalized at 0
 	if ui.AskCount != 0 {
@@ -63,7 +63,7 @@ func TestAsk(t *testing.T) {
 }
 
 func TestMessage(t *testing.T) {
-	ui := new(packermock.MockUi)
+	ui := new(packermock.MockUI)
 
 	// Check that it is well initalized at 0
 	if ui.MessageCount != 0 {
@@ -87,7 +87,7 @@ func TestMessage(t *testing.T) {
 }
 
 func TestError(t *testing.T) {
-	ui := new(packermock.MockUi)
+	ui := new(packermock.MockUI)
 
 	// Check that it is well initalized at 0
 	if ui.ErrorCount != 0 {
@@ -111,7 +111,7 @@ func TestError(t *testing.T) {
 }
 
 func TestMachine(t *testing.T) {
-	ui := new(packermock.MockUi)
+	ui := new(packermock.MockUI)
 
 	// Check that it is well initalized at 0
 	if ui.MachineCount != 0 {
