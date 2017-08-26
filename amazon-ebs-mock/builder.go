@@ -14,7 +14,7 @@ import (
 	"github.com/hashicorp/packer/template/interpolate"
 )
 
-const BuilderID = "horgix.amazonebsmock"
+const builderID = "horgix.amazonebsmock"
 
 // Hello Go, we can't even declare const slices...
 var regions = []string{
@@ -123,7 +123,7 @@ func (b *Builder) Run(ui packer.Ui, hook packer.Hook, cache packer.Cache) (packe
 	log.Println("Run(): tranforming into official module artifact type...")
 	artifact := &awscommon.Artifact{
 		Amis:           amis,
-		BuilderIDValue: BuilderID,
+		BuilderIdValue: builderID,
 	}
 
 	ui.Say("Generated mock Artifact with success :)")
