@@ -10,7 +10,7 @@ import (
 func TestSay(t *testing.T) {
 	ui := new(packermock.MockUI)
 
-	// Check that it is well initalized at 0
+	// Check that it is well initialized at 0
 	if ui.SayCount != 0 {
 		t.Errorf("Number of calls to ui.Say() was incorrect, "+
 			"got %d but should be %d at initialization", ui.SayCount,
@@ -34,7 +34,7 @@ func TestSay(t *testing.T) {
 func TestAsk(t *testing.T) {
 	ui := new(packermock.MockUI)
 
-	// Check that it is well initalized at 0
+	// Check that it is well initialized at 0
 	if ui.AskCount != 0 {
 		t.Errorf("Number of calls to ui.Ask() was incorrect, "+
 			"got %d but should be %d at initialization", ui.AskCount,
@@ -65,7 +65,7 @@ func TestAsk(t *testing.T) {
 func TestMessage(t *testing.T) {
 	ui := new(packermock.MockUI)
 
-	// Check that it is well initalized at 0
+	// Check that it is well initialized at 0
 	if ui.MessageCount != 0 {
 		t.Errorf("Number of calls to ui.Message() was incorrect, "+
 			"got %d but should be %d at initialization", ui.MessageCount,
@@ -89,7 +89,7 @@ func TestMessage(t *testing.T) {
 func TestError(t *testing.T) {
 	ui := new(packermock.MockUI)
 
-	// Check that it is well initalized at 0
+	// Check that it is well initialized at 0
 	if ui.ErrorCount != 0 {
 		t.Errorf("Number of calls to ui.Error() was incorrect, "+
 			"got %d but should be %d at initialization", ui.ErrorCount,
@@ -113,7 +113,7 @@ func TestError(t *testing.T) {
 func TestMachine(t *testing.T) {
 	ui := new(packermock.MockUI)
 
-	// Check that it is well initalized at 0
+	// Check that it is well initialized at 0
 	if ui.MachineCount != 0 {
 		t.Errorf("Number of calls to ui.Machine() was incorrect, "+
 			"got %d but should be %d at initialization", ui.MachineCount,
