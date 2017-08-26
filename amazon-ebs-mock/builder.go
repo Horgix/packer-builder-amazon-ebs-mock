@@ -36,8 +36,6 @@ var regions = []string{
 
 // Config will be initialize by Packer's helper DecodeOpts and uses the
 // mapstructure lib to associate JSON fields to the parameters it adds
-// TODO : ideally, the Config and initialization should be the same than the
-// official Amazon EBS Builder
 type Config struct {
 	common.PackerConfig `mapstructure:",squash"`
 
@@ -56,6 +54,10 @@ type Builder struct {
 	TestMsg string
 }
 
+// LoadDefaultConfig initializes a Config structure with default values
+// It is expected to be called at the beginning of the Prepare() step and
+// must be called before the config.DecodeOpts calls on the config, else this
+// will just override it
 func (b *Builder) LoadDefaultConfig() {
 	log.Println("LoadDefaultConfig(): Initializing builder's configuration")
 	b.Config = Config{}
@@ -66,6 +68,10 @@ func (b *Builder) LoadDefaultConfig() {
 	b.Config.Region = ""
 }
 
+// Prepare mocks the official Packer's method documented in packer/builder.go
+// This mock only parses config and do a some checks on it
+// TODO : ideally, the Config and initialization should be the same than the
+// official Amazon EBS Builder
 func (b *Builder) Prepare(raws ...interface{}) ([]string, error) {
 	log.Println("Hello I'm a custom builder and this is the Prepare step")
 
@@ -96,6 +102,10 @@ func (b *Builder) Prepare(raws ...interface{}) ([]string, error) {
 	return nil, nil
 }
 
+// Run mocks the official Packer's method documented in packer/builder.go
+// This mock generates AMI IDs based on what is asked in the configuration
+// It doesn't perform any real, impactful thing; it just generate strings and
+// returns them
 func (b *Builder) Run(ui packer.Ui, hook packer.Hook, cache packer.Cache) (packer.Artifact, error) {
 	log.Println("Run(): Hello I'm a custom builder")
 
@@ -134,6 +144,8 @@ func (b *Builder) Run(ui packer.Ui, hook packer.Hook, cache packer.Cache) (packe
 	return artifact, nil
 }
 
+// Cancel mocks the official Packer's method documented in packer/builder.go
+// This mock does absolutely nothing
 func (b *Builder) Cancel() {
 	b.TestMsg = "This method is doing nothing"
 }
