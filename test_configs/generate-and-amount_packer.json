@@ -1,0 +1,10 @@
+{
+  "builders": [
+    {
+      "type":     "amazon-ebs-mock",
+      "generate": true,
+      "amount":   4
+    }
+  ]
+}
+

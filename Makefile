@@ -14,7 +14,7 @@ docker::
 	      make
 
 debug::
-	PACKER_LOG=true packer build tests/simplest_packer.json
+	PACKER_LOG=true packer build test_configs/simplest_packer.json
 
 fmt::
 	@go fmt ${GO_PKGS}
